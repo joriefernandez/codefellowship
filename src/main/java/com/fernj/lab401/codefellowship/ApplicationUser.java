@@ -1,6 +1,7 @@
 package com.fernj.lab401.codefellowship;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,6 +23,7 @@ public class ApplicationUser implements UserDetails {
     String password;
     String firstName;
     String lastName;
+    @DateTimeFormat(pattern="yyyy-mm-dd")
     Date dateOfBirth;
     String bio;
 
