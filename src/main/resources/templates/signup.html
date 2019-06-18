@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>Sign Up</h1>
-<form action="#" th:action="@{/myprofile}" th:object="${appUser}" method="post">
+<form action="#" th:action="@{/signup}" th:object="${appUser}" method="post">
     <p>User name: <input type="text" th:field="*{username}" required/></p>
-    <p>Password: <input type="text" th:field="*{password}" required/></p>
+    <p>Password: <input type="password" th:field="*{password}" required/></p>
     <p>First name: <input type="text" th:field="*{firstName}" required /></p>
     <p>Last name: <input type="text" th:field="*{lastName}" required /></p>
     <p>Date of birth: <input type="date" th:field="*{dateOfBirth}" required/></p>
