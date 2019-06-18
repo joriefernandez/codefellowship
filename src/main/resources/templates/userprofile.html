@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Profile</h1>
-<a th:href="@{/}">Log out</a>
+
 <img src="https://cdn.patchcdn.com/assets/layout/contribute/user-default.png" width="200px" height="200px">
 <h2>User Information</h2>
 <p>User name: <span th:text="${principal.username}"></span></p>
@@ -14,6 +14,8 @@
 <p>Last name: <span th:text="${principal.lastName}"></span></p>
 <p>Date of birth: <span th:text="${principal.dateOfBirth}"></span></p>
 <p>Bio: <span th:text="${principal.bio}"></span></p>
+
+<a th:href="@{/}">Log out</a>
 
 </body>
 </html>
