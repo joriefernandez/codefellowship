@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeFellowship Signup</title>
+</head>
+<body>
+<h1>Sign Up</h1>
+<form action="#" th:action="@{/signup}" th:object="${appUser}" method="post">
+    <p>User name: <input type="text" th:field="*{username}" required/></p>
+    <p>Password: <input type="password" th:field="*{password}" required/></p>
+    <p>First name: <input type="text" th:field="*{firstName}" required /></p>
+    <p>Last name: <input type="text" th:field="*{lastName}" required /></p>
+    <p>Date of birth: <input type="date" th:field="*{dateOfBirth}" required/></p>
+    <p>Bio: <input type="text" th:field="*{bio}" required /></p>
+    <p><input type="submit" value="Submit" /></p>
+
+</form>
+</body>
+</html>
