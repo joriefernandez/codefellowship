@@ -56,14 +56,21 @@ public class FellowshipController {
     }
 
     @GetMapping("/users/{id}")
-    public String getDinosaurs(Principal p, Model m) {
-        System.out.println(p.getName());
-        m.addAttribute("principal", p);
+    public String getUserInfo(Principal p, Model m) {
+        ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
+        m.addAttribute("principal", currentUser);
         return "userprofile";
     }
 
     @GetMapping("/login")
     public String getLoginPage() {
         return "login";
+    }
+
+    @GetMapping("/myprofile")
+    public String getLoggedProfile(Principal p, Model m) {
+        ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
+        m.addAttribute("principal", currentUser);
+        return "userprofile";
     }
 }
