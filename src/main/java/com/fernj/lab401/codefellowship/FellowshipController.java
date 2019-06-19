@@ -24,6 +24,9 @@ public class FellowshipController {
     ApplicationUserRepository appUserRepository;
 
     @Autowired
+    PostRepository postRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -58,7 +61,7 @@ public class FellowshipController {
     @GetMapping("/users/{id}")
     public String getUserInfo(Principal p, Model m) {
         ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
-        m.addAttribute("principal", currentUser);
+        m.addAttribute("curUser", currentUser);
         return "userprofile";
     }
 

@@ -26,10 +26,10 @@ public class PostController {
         //Get logged user info from db
         ApplicationUser me = appUserRepository.findByUsername(p.getName());
 
-//        //Get list of posts
-//        Iterable<Post> posts = me.getPosts();
+        //Get list of posts
+        Iterable<Post> posts = me.getPosts();
         m.addAttribute("curUser", me);
-//        m.addAttribute("posts", posts);
+        m.addAttribute("posts", posts);
 
         return "userprofile";
     }
