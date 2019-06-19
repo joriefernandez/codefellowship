@@ -62,6 +62,13 @@ public class ApplicationUser implements UserDetails {
         return bio;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     @Override
     public String getPassword() {

@@ -1,7 +1,9 @@
 package com.fernj.lab401.codefellowship;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -10,6 +12,7 @@ public class Post {
     long id;
 
     String body;
+    @DateTimeFormat(pattern="yyyy-mm-dd HH:mm:ss")
     Date createdAt;
 
     @ManyToOne
@@ -18,9 +21,9 @@ public class Post {
     //Constructors
     public Post(){}
 
-    public Post(String body, Date createdAt, ApplicationUser user) {
+    public Post(String body, ApplicationUser user) {
         this.body = body;
-        this.createdAt = createdAt;
+        this.createdAt = new Date();
         this.user = user;
     }
 
