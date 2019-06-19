@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>CodeFellowship Signup</title>
+    <link href="/styles.css" rel="stylesheet" />
 </head>
 <body>
 <h1>Sign Up</h1>
 <form action="#" th:action="@{/signup}" th:object="${appUser}" method="post">
-    <p>User name: <input type="text" th:field="*{username}" required/></p>
-    <p>Password: <input type="password" th:field="*{password}" required/></p>
-    <p>First name: <input type="text" th:field="*{firstName}" required /></p>
-    <p>Last name: <input type="text" th:field="*{lastName}" required /></p>
-    <p>Date of birth: <input type="date" th:field="*{dateOfBirth}" required/></p>
-    <p>Bio: <input type="text" th:field="*{bio}" required /></p>
-    <p><input type="submit" value="Submit" /></p>
+
+    <h2>Log in</h2>
+
+    <label for="username">User Name:</label>
+    <input id="username" type="text" th:field="*{username}" required/>
+
+    <label for="password">Password:</label>
+    <input id="password" type="password" th:field="*{password}" required/>
+
+    <label for="firstname">First Name:</label>
+    <input id="firstname" type="text" th:field="*{firstName}" required/>
+
+    <label for="lastname">Last Name:</label>
+    <input id="lastname" type="text" th:field="*{lastName}" required/>
+
+    <label for="dob">Date of birth:</label>
+    <input id="dob" type="date" th:field="*{dateOfBirth}" required/>
+
+    <label for="bio">Bio:</label>
+    <input id="bio" type="text" th:field="*{bio}" required/>
+
+
+    <!--<p>User name: <input type="text" th:field="*{username}" required/></p>-->
+    <!--<p>Password: <input type="password" th:field="*{password}" required/></p>-->
+    <!--<p>First name: <input type="text" th:field="*{firstName}" required /></p>-->
+    <!--<p>Last name: <input type="text" th:field="*{lastName}" required /></p>-->
+    <!--<p>Date of birth: <input type="date" th:field="*{dateOfBirth}" required/></p>-->
+    <!--<p>Bio: <input type="text" th:field="*{bio}" required /></p>-->
+
+    <button type="submit">Sign Up</button>
+
 
 </form>
 </body>
