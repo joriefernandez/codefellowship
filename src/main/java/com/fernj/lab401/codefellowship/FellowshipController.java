@@ -67,10 +67,5 @@ public class FellowshipController {
         return "login";
     }
 
-    @GetMapping("/myprofile")
-    public String getLoggedProfile(Principal p, Model m) {
-        ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
-        m.addAttribute("principal", currentUser);
-        return "userprofile";
-    }
+
 }
