@@ -16,13 +16,16 @@
 
         <ul>
             <li th:each="following : ${followings}">
-               
+
                 <ul>
                     <li th:each="post: ${following.getPosts()}">
                         <span th:text="${post.body}"></span>
                         <p>Posted on <span th:text="${#dates.format(post.createdAt, 'dd-MMM-yyyy')}"></span>
-                            by <span th:text="${following.firstName}"></span>
+                            by
+                            <a th:href="'/following/' + ${following.getId()}">
+                            <span th:text="${following.firstName}"></span>
                             <span th:text="${following.lastName}">.</span>
+                            </a>
                         </p>
                     </li>
 
