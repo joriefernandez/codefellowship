@@ -21,15 +21,29 @@
 
 <div th:if="${not #lists.isEmpty(curUser.posts)}">
     <h3>Your posts</h3>
+
+    <ul>
+        <li th:each="post : ${curUser.posts}">
+
+            <span th:text="${post.body}"></span>
+            <p>Posted on <span th:text="${#dates.format(post.createdAt, 'dd-MMM-yyyy')}"></span></p>
+
+        </li>
+    </ul>
 </div>
-<ul>
-    <li th:each="post : ${curUser.posts}">
 
-        <span th:text="${post.body}"></span>
-        <p>Posted on <span th:text="${#dates.format(post.createdAt, 'dd-MMM-yyyy')}"></span></p>
+<!--<div th:if="${not #lists.isEmpty(curUser.followings)}">-->
+    <!--<h3>Your posts</h3>-->
 
-    </li>
-</ul>
+    <!--<ul>-->
+        <!--<li th:each="following : ${curUser.followings}">-->
+           <!--&lt;!&ndash;<a th:href="@{/users/} + following.getId()">&ndash;&gt;-->
+            <!--<span th:text="${following.firstName}"></span>-->
+            <!--<span th:text="${following.lastName}"></span>-->
+           <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
 
 </body>
 </html>
