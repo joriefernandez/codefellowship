@@ -1,6 +1,7 @@
 package com.fernj.lab401.codefellowship;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -70,6 +71,25 @@ public class FellowshipController {
     @GetMapping("/login")
     public String getLoginPage() {
         return "login";
+    }
+
+
+    //Display all users
+    //Ref: https://stackoverflow.com/questions/6416706/easy-way-to-convert-iterable-to-collection
+    @GetMapping("/users")
+    public String displayAllUsers(Model m, Principal p){
+        Iterable<ApplicationUser> allUsers = appUserRepository.findAll();
+        List<ApplicationUser> users = new ArrayList<>();
+
+        ApplicationUser currentUser = appUserRepository.findByUsername(p.getName());
+        allUsers.forEach(users::add);
+
+        users.remove(currentUser);
+
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("users", users);
+        return "users";
+
     }
 
 
