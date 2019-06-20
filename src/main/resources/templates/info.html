@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>CodeFellowship</title>-->
+    <!--<link href="/styles.css" rel="stylesheet" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Welcome to CodeFellowship</h1>-->
+
+<!--<p>CodeFellowship allows you to learn and connect with people, who have the same coding interest. To start learning and expanding your network, click <a th:href="@{/signup}">Sign Up</a> now.</p>-->
+<!--<p><a th:href="@{/login}">Log In</a></p>-->
+<!--</body>-->
+<!--</html>-->
+
 <head>
-    <meta charset="UTF-8">
     <title>CodeFellowship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/styles.css" rel="stylesheet" />
 </head>
 <body>
-<h1>Welcome to CodeFellowship</h1>
 
-<p>CodeFellowship allows you to learn and connect with people, who have the same coding interest. To start learning and expanding your network, click <a th:href="@{/signup}">Sign Up</a> now.</p>
-<p><a th:href="@{/login}">Log In</a></p>
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+        <span class="w3-jumbo w3-hide-small">Welcome to CodeFellowship</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Welcome to CodeFellowship</span><br>
+        <span class="w3-large">CodeFellowship allows you to learn and connect with people, who have the same coding interest.</span>
+        <p><a th:href="@{/signup}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Sign Up</a>
+        <a th:href="@{/login}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Log In</a></p>
+
+    </div>
+</header>
+
 </body>
 </html>
