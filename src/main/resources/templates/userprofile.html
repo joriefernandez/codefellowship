@@ -33,12 +33,12 @@
     </ul>
 </div>
 
-<div th:if="${not #lists.isEmpty(followings)}">
-    <h3>Your posts</h3>
+<div th:if="${not #lists.isEmpty(curUser.followings)}">
+    <h3>Following</h3>
 
     <ul>
-        <li th:each="following : ${followings}">
-            <a th:href="'/following/ + following.getId()'">
+        <li th:each="following : ${curUser.followings}">
+            <a th:href="'/following/' + ${following.getId()}">
             <span th:text="${following.firstName}"></span>
             <span th:text="${following.lastName}"></span>
            </a>

@@ -17,17 +17,18 @@
     <p>Last name: <span th:text="${otherUser.lastName}"></span></p>
     <p>Date of birth: <span th:text="${otherUser.dateOfBirth}"></span></p>
     <p>Bio: <span th:text="${otherUser.bio}"></span></p>
-    <form action="'/following/' + ${user.getId()}" method="POST">
+    <form th:action="'/following/' + ${otherUser.getId()}" method="POST">
+
         <button type="submit">Follow</button>
     </form>
 </div>
 
 <div th:if="${not #lists.isEmpty(otherUser.followings)}">
-    <h3>Your posts</h3>
+    <h3>User Posts</h3>
 
     <ul>
         <li th:each="following : ${otherUser.followings}">
-            <a th:href="'/following/ + following.getId()'">
+            <a th:href="'/following/' + ${following.getId()}">
                 <span th:text="${following.firstName}"></span>
                 <span th:text="${following.lastName}"></span>
             </a>

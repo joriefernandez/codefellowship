@@ -102,5 +102,15 @@ public class FellowshipController {
         return "anotherUser";
     }
 
+    @PostMapping("/following/{id}")
+    public String addAnotherUser(Model m, Principal p, @PathVariable Long id){
+        ApplicationUser currentUser = appUserRepository.findByUsername(p.getName());
+        ApplicationUser viewedUser = appUserRepository.findById(id).get();
+
+        currentUser.followings.add(viewedUser);
+        appUserRepository.save(currentUser);
+        return "redirect:/users";
+    }
+
 
 }
