@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+    <link href="/styles.css" rel="stylesheet" />
+</head>
+<body>
+<header th:replace="fragments/nav :: cf_header">...</header>
+<h2>Welcome, <span th:text="${currentUser.firstName}"></span>!</h2>
+<div th:replace="fragments/nav :: loggednav">...</div>
+<h2>User List</h2>
+<div>
+
+
+    <ul>
+        <li th:each="user:${users}">
+
+            <a th:href="'/following/' + ${user.getId()}">
+                <span th:text="${user.firstName}"></span>
+                <span th:text="${user.lastName}"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

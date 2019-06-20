@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -29,6 +30,9 @@ public class ApplicationUser implements UserDetails {
     @OneToMany(mappedBy = "user")
     List<Post> posts;
 
+    @ManyToMany
+    Set<ApplicationUser> followings;
+
     public ApplicationUser() {}
 
 
@@ -39,6 +43,14 @@ public class ApplicationUser implements UserDetails {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.bio = bio;
+    }
+
+    public Set<ApplicationUser> getFollowing() {
+        return followings;
+    }
+
+    public void setFollowing(Set<ApplicationUser> followings) {
+        this.followings = followings;
     }
 
     @Override
@@ -98,6 +110,22 @@ public class ApplicationUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Set<ApplicationUser> getFollowings() {
+        return followings;
+    }
+
+    public void setFollowings(Set<ApplicationUser> followings) {
+        this.followings = followings;
     }
 
     public void setUsername(String username) {
