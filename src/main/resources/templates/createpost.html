@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+    <link href="/styles.css" rel="stylesheet" />
+</head>
+<body>
+<h2>Welcome, <span th:text="${curUser.firstName}"></span>!</h2>
+<div th:replace="fragments :: header">...</div>
+
+<h2>Add Post</h2>
+<textarea rows="4" cols="100" name="body" form="usrform">
+</textarea>
+<form method="POST" th:action="@{/posts/add}"  id="usrform">
+
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>My Profile</title>
+    <link href="/styles.css" rel="stylesheet" />
 </head>
 <body>
-<h1>Profile</h1>
+
+<h2>Welcome, <span th:text="${curUser.firstName}"></span>!</h2>
+<div th:replace="fragments :: header">...</div>
+
 
 <img src="https://cdn.patchcdn.com/assets/layout/contribute/user-default.png" width="200px" height="200px">
-<h2>User Information</h2>
-<p>User name: <span th:text="${principal.username}"></span></p>
-<p>First name: <span th:text="${principal.firstName}"></span></p>
-<p>Last name: <span th:text="${principal.lastName}"></span></p>
-<p>Date of birth: <span th:text="${principal.dateOfBirth}"></span></p>
-<p>Bio: <span th:text="${principal.bio}"></span></p>
+<h3>Your Information</h3>
+<p>User name: <span th:text="${curUser.username}"></span></p>
+<p>Last name: <span th:text="${curUser.lastName}"></span></p>
+<p>Date of birth: <span th:text="${curUser.dateOfBirth}"></span></p>
+<p>Bio: <span th:text="${curUser.bio}"></span></p>
 
-<a th:href="@{/}">Log out</a>
+
+<div th:if="${not #lists.isEmpty(curUser.posts)}">
+    <h3>Your posts</h3>
+</div>
+<ul>
+    <li th:each="post : ${curUser.posts}">
+
+        <span th:text="${post.body}"></span>
+        <p>Posted on <span th:text="${#dates.format(post.createdAt, 'dd-MMM-yyyy')}"></span></p>
+
+    </li>
+</ul>
 
 </body>
 </html>
