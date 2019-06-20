@@ -15,6 +15,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class FellowshipController {
@@ -110,6 +111,15 @@ public class FellowshipController {
         currentUser.followings.add(viewedUser);
         appUserRepository.save(currentUser);
         return "redirect:/users";
+    }
+
+    @GetMapping("/feed")
+    public String showFeeds(Principal p, Model m){
+        ApplicationUser currentUser = appUserRepository.findByUsername(p.getName());
+        Set<ApplicationUser> follows = currentUser.getFollowings();
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("followings", follows);
+        return "feeds";
     }
 
 

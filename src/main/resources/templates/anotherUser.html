@@ -25,11 +25,25 @@
     </form>
 </div>
 
-<div th:if="${not #lists.isEmpty(otherUser.followings)}">
-    <h3>User Posts</h3>
+<div th:if="${not #lists.isEmpty(otherUser.posts)}">
+    <h3>Your posts</h3>
 
     <ul>
-        <li th:each="following : ${otherUser.followings}">
+        <li th:each="post : ${otherUser.posts}">
+
+            <span th:text="${post.body}"></span>
+            <p>Posted on <span th:text="${#dates.format(post.createdAt, 'dd-MMM-yyyy')}"></span></p>
+
+        </li>
+    </ul>
+</div>
+
+
+<div th:if="${not #lists.isEmpty(otherUser.getFollowings())}">
+    <h3>Following</h3>
+
+    <ul>
+        <li th:each="following : ${otherUser.getFollowings()}">
             <a th:href="'/following/' + ${following.getId()}">
                 <span th:text="${following.firstName}"></span>
                 <span th:text="${following.lastName}"></span>
@@ -37,6 +51,8 @@
         </li>
     </ul>
 </div>
+
+
 
 </body>
 </html>
