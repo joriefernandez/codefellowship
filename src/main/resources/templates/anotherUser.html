@@ -17,7 +17,9 @@
     <p>Last name: <span th:text="${otherUser.lastName}"></span></p>
     <p>Date of birth: <span th:text="${otherUser.dateOfBirth}"></span></p>
     <p>Bio: <span th:text="${otherUser.bio}"></span></p>
-    <form th:action="'/following/' + ${otherUser.getId()}" method="POST">
+
+
+    <form th:if="${!isFollowed}" th:action="'/following/' + ${otherUser.getId()}" method="POST">
 
         <button type="submit">Follow</button>
     </form>
