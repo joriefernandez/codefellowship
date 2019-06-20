@@ -6,9 +6,9 @@
     <link href="/styles.css" rel="stylesheet" />
 </head>
 <body>
-
+<header th:replace="fragments/nav :: cf_header">...</header>
 <h2>Welcome, <span th:text="${curUser.firstName}"></span>!</h2>
-<div th:replace="fragments :: header">...</div>
+<div th:replace="fragments/nav :: loggednav">...</div>
 
 
 <img src="https://cdn.patchcdn.com/assets/layout/contribute/user-default.png" width="200px" height="200px">

@@ -6,15 +6,15 @@
     <link href="/styles.css" rel="stylesheet" />
 </head>
 <body>
+<header th:replace="fragments/nav :: cf_header">...</header>
 <h2>Welcome, <span th:text="${curUser.firstName}"></span>!</h2>
-<div th:replace="fragments :: header">...</div>
+<div th:replace="fragments/nav :: loggednav">...</div>
 
-<h2>Add Post</h2>
-<textarea rows="4" cols="100" name="body" form="usrform">
-</textarea>
 <form method="POST" th:action="@{/posts/add}"  id="usrform">
-
-    <input type="submit">
+    <h2>Add Post</h2>
+    <textarea rows="10" cols="100" name="body" form="usrform"></textarea>
+    <button type="submit">Submit Post</button>
 </form>
+
 </body>
 </html>

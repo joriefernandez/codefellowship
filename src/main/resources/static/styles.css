@@ -70,6 +70,19 @@ body, html {
   background-size: cover;
   background-image: url("https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/05/learn-coding-online-for-free.jpg");
   min-height: 100%;
+  opacity = 0.6;
+}
+
+.bgimg-small {
+  background-position: center;
+  background-size: auto;
+  background-image: url("https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/05/learn-coding-online-for-free.jpg");
+  min-height: 10%;
+  opacity = 0.1;
+  z-index = 3;
+  color: white;
+  padding: 20px;
+
 }
 
 .w3-bar .w3-button {
@@ -81,21 +94,29 @@ body {
   font-family: 'Nunito', sans-serif;
   color: #384047;
   margin: 30px auto;
+
 }
 
 form {
   max-width: 300px;
-  margin: 10px auto;
+  margin: 20px auto;
   padding: 10px 20px;
   background: #f4f7f8;
   border-radius: 8px;
 }
 
 h1, h2 {
-  margin: 30px;
+  margin: 20px;
   text-align: center;
-  font-size: 25px;
   font-weight: bold;
+}
+
+h1{
+font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 h3 {
@@ -109,15 +130,21 @@ p{
 input, textarea {
   background: rgba(255,255,255,0.1);
   border: none;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0;
   outline: 0;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   background-color: #e8eeef;
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+}
+
+.txtarea{
+    margin: 20px auto;
+    width: 75%;
+
 }
 
 
@@ -152,6 +179,12 @@ label.light {
   font-weight: 300;
   display: inline;
 }
+
+nav{
+    text-align: center;
+}
+
+
 
 
 @media screen and (min-width: 480px) {
