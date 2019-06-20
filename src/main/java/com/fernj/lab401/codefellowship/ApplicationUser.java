@@ -112,6 +112,22 @@ public class ApplicationUser implements UserDetails {
         return true;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Set<ApplicationUser> getFollowings() {
+        return followings;
+    }
+
+    public void setFollowings(Set<ApplicationUser> followings) {
+        this.followings = followings;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }

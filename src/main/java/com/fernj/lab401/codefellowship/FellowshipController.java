@@ -8,10 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
@@ -90,6 +87,19 @@ public class FellowshipController {
         m.addAttribute("users", users);
         return "users";
 
+    }
+
+    //Route to view another user
+    @GetMapping("/following/{id}")
+    public String viewAnotherUser(Model m, Principal p, @PathVariable Long id){
+        ApplicationUser currentUser = appUserRepository.findByUsername(p.getName());
+        ApplicationUser viewedUser = appUserRepository.findById(id).get();
+
+        m.addAttribute("isFollowed", currentUser.followings.contains(viewedUser));
+        m.addAttribute("curUser", currentUser);
+        m.addAttribute("otherUser", viewedUser);
+
+        return "anotherUser";
     }
 
 

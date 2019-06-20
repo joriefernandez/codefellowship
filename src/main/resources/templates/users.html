@@ -16,7 +16,7 @@
     <ul>
         <li th:each="user:${users}">
 
-            <a th:href="'/following/${user.getId()}'">
+            <a th:href="'/following/' + ${user.getId()}">
                 <span th:text="${user.firstName}"></span>
                 <span th:text="${user.lastName}"></span>
             </a>

@@ -19,6 +19,7 @@
 <p>Bio: <span th:text="${curUser.bio}"></span></p>
 
 </div>
+
 <div th:if="${not #lists.isEmpty(curUser.posts)}">
     <h3>Your posts</h3>
 
