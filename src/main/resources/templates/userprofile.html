@@ -32,18 +32,18 @@
     </ul>
 </div>
 
-<!--<div th:if="${not #lists.isEmpty(curUser.followings)}">-->
-    <!--<h3>Your posts</h3>-->
+<div th:if="${not #lists.isEmpty(followings)}">
+    <h3>Your posts</h3>
 
-    <!--<ul>-->
-        <!--<li th:each="following : ${curUser.followings}">-->
-           <!--&lt;!&ndash;<a th:href="@{/users/} + following.getId()">&ndash;&gt;-->
-            <!--<span th:text="${following.firstName}"></span>-->
-            <!--<span th:text="${following.lastName}"></span>-->
-           <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--</li>-->
-    <!--</ul>-->
-<!--</div>-->
+    <ul>
+        <li th:each="following : ${followings}">
+            <a th:href="'/following/ + following.getId()'">
+            <span th:text="${following.firstName}"></span>
+            <span th:text="${following.lastName}"></span>
+           </a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>

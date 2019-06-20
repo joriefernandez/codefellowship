@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class FellowshipController {
@@ -62,6 +63,7 @@ public class FellowshipController {
     public String getUserInfo(Principal p, Model m) {
         ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
         m.addAttribute("curUser", currentUser);
+        m.addAttribute("followings", currentUser.followings);
         return "userprofile";
     }
 
