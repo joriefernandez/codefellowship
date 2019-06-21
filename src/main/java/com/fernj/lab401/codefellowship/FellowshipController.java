@@ -60,7 +60,7 @@ public class FellowshipController {
 
     @GetMapping("/users/{id}")
     public String getUserInfo(Principal p, Model m) {
-        ApplicationUser currentUser = (ApplicationUser)((UsernamePasswordAuthenticationToken) p).getPrincipal();
+        ApplicationUser currentUser = appUserRepository.findByUsername(p.getName());
         m.addAttribute("curUser", currentUser);
         m.addAttribute("followings", currentUser.followings);
         return "userprofile";
